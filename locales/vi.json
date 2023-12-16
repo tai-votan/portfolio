@@ -1,0 +1,14 @@
+{
+    "home": {
+        "introduction": {
+            "name": "GIỚI THIỆU",
+            "title": "Kỹ sư phần mềm",
+            "description": "Tôi thiết kế và phát triển các dịch vụ cho khách hàng thuộc mọi quy mô, chuyên tạo ra các trang web, dịch vụ web và cửa hàng trực tuyến hiện đại, phong cách."
+        },
+        "about": {
+            "name": "ABOUT ME",
+            "title": "Biography",
+            "description": "I'm a Freelancer Front-end Developer with over 12 years of experience. I'm from San Francisco. I code and create web elements for amazing people around the world. I like work with new people. New people are new experiences."
+        }
+    }
+}
