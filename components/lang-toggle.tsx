@@ -1,5 +1,3 @@
-"use client";
-
 import { useRouter } from "@/navigation";
 import { GlobeIcon } from "@radix-ui/react-icons";
 
@@ -10,7 +8,7 @@ export function LangToggle() {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="icon">
+                <Button variant="outline" size="icon" className="border-0">
                     <GlobeIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
                     <span className="sr-only">Toggle lang</span>
                 </Button>

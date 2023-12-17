@@ -1,17 +1,17 @@
 import { createContext, useContext } from "react";
 import { createStore, useStore as useZustandStore } from "zustand";
+import { devtools } from "zustand/middleware";
 
 interface StoreInterface {
-    lastUpdate: number;
-    light: boolean;
-    count: number;
-    decrement: () => void;
+    isOpen: boolean;
+    isScroll: boolean;
+    openNav: () => void;
+    setScroll: (isScroll: boolean) => void;
 }
 
 const getDefaultInitialState = () => ({
-    lastUpdate: Date.now(),
-    light: false,
-    count: 0,
+    isOpen: false,
+    isScroll: false,
 });
 
 export type StoreType = ReturnType<typeof initializeStore>;
@@ -29,13 +29,21 @@ export const useStore = <T>(selector: (state: StoreInterface) => T) => {
 };
 
 export const initializeStore = (preloadedState: Partial<StoreInterface> = {}) => {
-    return createStore<StoreInterface>((set, get) => ({
-        ...getDefaultInitialState(),
-        ...preloadedState,
-        decrement: () => {
-            set({
-                count: get().count - 1,
-            });
-        },
-    }));
+    return createStore<StoreInterface>()(
+        devtools(
+            (set, get) => ({
+                ...getDefaultInitialState(),
+                ...preloadedState,
+                openNav: () => {
+                    set({ isOpen: !get().isOpen }, false, "openNav");
+                },
+                setScroll: (isScroll) => {
+                    set({ isScroll }, false, "setScroll");
+                },
+            }),
+            {
+                enabled: process.env.NODE_ENV !== "production",
+            },
+        ),
+    );
 };
