@@ -6,7 +6,7 @@ import { Button, Input, Textarea } from "@/components/ui";
 export function Contact() {
     const t = useTranslations("home");
     return (
-        <Section name="CONTACT" title="Get In Touch" id="contact" classNames="pt-24 pb-48">
+        <Section name="CONTACT" title="Get In Touch" id="contact" classNames="pt-24 pb-36">
             <div className="flex flex-col gap-20">
                 <p className="text-xl md:text-3xl text-neutral-500">
                     If you have any suggestion, project or even you want to say “hello”, please fill out the form below

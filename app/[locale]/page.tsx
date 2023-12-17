@@ -38,7 +38,7 @@ export default function Home() {
         <>
             <main className="flex flex-col lg:flex-row items-start relative">
                 <Avatar />
-                <div className={cn("lg:w-4/6 transition-all duration-500 ease-in-out", { "lg:!w-3/5": !isScroll })}>
+                <div className={cn("lg:w-4/6 transition-all duration-500 ease-in-out", { "lg:w-7/12": !isScroll })}>
                     <div className="lg:h-screen flex items-center mb-24 md:mb-0" id="home">
                         <Section name={t("introduction.name")} title={t("introduction.title")}>
                             <p className="text-xl md:text-3xl text-neutral-500">{t("introduction.description")}</p>
