@@ -8,6 +8,7 @@ import { Link } from "@/navigation";
 export const Navigation = () => {
     const openNav = useStore((state) => state.openNav);
     const isOpen = useStore((state) => state.isOpen);
+    const isScroll = useStore((state) => state.isScroll);
 
     const navs = ["home", "about", "services", "contact"];
 
@@ -33,7 +34,7 @@ export const Navigation = () => {
             <div
                 className={cn(
                     "fixed inset-y-0 right-0 z-50 w-full lg:w-2/5 bg-white dark:bg-neutral-900 transition-all duration-1000 flex flex-col p-24",
-                    { "translate-x-full": !isOpen },
+                    { "translate-x-full": !isOpen, "lg:w-1/3": isScroll },
                 )}
             >
                 <Button
