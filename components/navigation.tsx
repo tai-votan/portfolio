@@ -30,6 +30,7 @@ export const Navigation = () => {
                     "fixed inset-0 z-40 opacity-90 dark:bg-neutral-900 bg-neutral-200 transition-all duration-1000 ",
                     { "-translate-x-full": !isOpen },
                 )}
+                onClick={openNav}
             />
             <div
                 className={cn(
