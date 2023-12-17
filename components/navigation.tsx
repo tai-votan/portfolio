@@ -54,7 +54,7 @@ export const Navigation = () => {
                             <li
                                 key={nav}
                                 className={cn("transition-all duration-500", { "translate-x-12 opacity-0": !isOpen })}
-                                style={{ transitionDelay: `${index * 200 + 700}ms` }}
+                                style={{ transitionDelay: `${isOpen ? index * 200 + 700 : 0}ms` }}
                             >
                                 <Link
                                     href={`#${nav}`}
