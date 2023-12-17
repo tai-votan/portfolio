@@ -58,7 +58,7 @@ export const Navigation = () => {
                             >
                                 <Link
                                     href={`#${nav}`}
-                                    className="capitalize text-3xl text-black hover:text-special transition-all duration-300"
+                                    className="capitalize text-3xl text-black dark:text-neutral-300 hover:text-special transition-all duration-300"
                                     onClick={onClick}
                                 >
                                     {nav}
