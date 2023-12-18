@@ -23,7 +23,14 @@ export function Avatar() {
             </div>
             <div className="relative flex flex-col gap-4 pb-5 after:border after:border-black/20 after:dark:border-white/20 after:absolute after:rounded-sm after:-inset-x-5 after:-inset-y-10 before:border before:border-black/20 before:dark:border-white/20 before:absolute before:rounded-sm before:-inset-x-10 before:-inset-y-6 w-3/5 mx-auto">
                 <div className="aspect-square relative flex-1">
-                    <Image src={"/avatar_square.jpeg"} fill alt={"Tai Vo Tan"} className="rounded-sm" priority />
+                    <Image
+                        src={"/avatar_square.jpeg"}
+                        fill
+                        alt={"Tai Vo Tan"}
+                        className="rounded-sm"
+                        priority
+                        sizes="(max-width: 768px) 33vw, (max-width: 1200px) 33vw, 33vw"
+                    />
                 </div>
                 <div className="flex flex-col gap-2 text-black dark:text-neutral-300">
                     <div className="text-xl font-medium">I&apos;m a</div>

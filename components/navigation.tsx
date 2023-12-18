@@ -1,9 +1,12 @@
+"use client";
+
 import { Cross1Icon } from "@radix-ui/react-icons";
 
 import { Button } from "@/components/ui";
 import { useStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import { Link } from "@/navigation";
+import { useEffect } from "react";
 
 export const Navigation = () => {
     const openNav = useStore((state) => state.openNav);
@@ -11,6 +14,28 @@ export const Navigation = () => {
     const isScroll = useStore((state) => state.isScroll);
 
     const navs = ["home", "about", "services", "contact"];
+
+    const setScroll = useStore((state) => state.setScroll);
+
+    const handleScroll = () => {
+        if (window.scrollY === 0) {
+            setScroll(false);
+        } else {
+            setScroll(true);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        if (window.scrollY > 100) {
+            setScroll(true);
+        }
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
