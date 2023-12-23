@@ -1,14 +1,15 @@
 import { locales } from "@/i18n";
-import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 import { notFound } from "next/navigation";
 import StoreProvider from "@/lib/StoreProvider";
+import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/lib/ThemeProvider";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 
-const inter = Inter({ subsets: ["latin"] });
+const manrope = Manrope({ subsets: ["latin"] });
 
 type Layout = {
     children: React.ReactNode;
@@ -25,7 +26,7 @@ export default function RootLayout({ children, params: { locale } }: Layout) {
             <body
                 className={cn(
                     "[&::-webkit-scrollbar]:hidden [&::-webkit-scrollbar-track]:hidden [&::-webkit-scrollbar-thumb]:hidden",
-                    inter.className,
+                    manrope.className,
                 )}
             >
                 <NextIntlClientProvider locale={locale} messages={messages}>
@@ -33,6 +34,7 @@ export default function RootLayout({ children, params: { locale } }: Layout) {
                         <StoreProvider>{children}</StoreProvider>
                     </ThemeProvider>
                 </NextIntlClientProvider>
+                <Analytics />
             </body>
         </html>
     );
