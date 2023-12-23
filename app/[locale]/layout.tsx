@@ -31,10 +31,12 @@ export default function RootLayout({ children, params: { locale } }: Layout) {
             >
                 <NextIntlClientProvider locale={locale} messages={messages}>
                     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                        <StoreProvider>{children}</StoreProvider>
+                        <StoreProvider>
+                            {children}
+                            <Analytics />
+                        </StoreProvider>
                     </ThemeProvider>
                 </NextIntlClientProvider>
-                <Analytics />
             </body>
         </html>
     );
